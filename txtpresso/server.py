@@ -29,8 +29,9 @@ class TXTpressoServer:
             return reply
 
         parts = qname.split('.')
-        subdomain = parts[0] if parts else ''
-        handler = self.handlers.get(subdomain)
+        # Extract the action and ignore the random part
+        action = parts[0].split('.')[0] if parts else ''
+        handler = self.handlers.get(action)
 
         if handler:
             response_data = handler.handle()
@@ -45,14 +46,20 @@ class TXTpressoServer:
             s.bind(('', self.port))
             logging.info(f"TXTpresso Server listening on port {self.port}")
 
-            while True:
-                data, addr = s.recvfrom(512)
-                try:
-                    dns_req = DNSRecord.parse(data)
-                    response = self.handle_request(dns_req)
-                    s.sendto(response.pack(), addr)
-                except Exception as e:
-                    logging.error(f"Error processing request: {e}")
+            try:
+                while True:
+                    data, addr = s.recvfrom(512)
+                    try:
+                        dns_req = DNSRecord.parse(data)
+                        response = self.handle_request(dns_req)
+                        s.sendto(response.pack(), addr)
+                    except Exception as e:
+                        logging.error(f"Error processing request: {e}")
+            except KeyboardInterrupt:
+                logging.info("TXTpresso Server shutting down")
 
-# The server can be run with handlers registered in a separate script
-
+if __name__ == '__main__':
+    server = TXTpressoServer()
+    # Example handler registration
+    # server.register_handler('time', TimeHandler)
+    server.start()

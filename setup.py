@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='TXTpresso',
-    version='0.1.4',
+    version='0.1.7',
     author='Uli Hitzel',
     author_email='uli.hitzel@gmail.com',
     description='A lightweight DNS-based message broker',
@@ -20,5 +20,10 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'txtpresso-hello=txtpresso.hello_world:main',
+        ],
+    },
 )
 

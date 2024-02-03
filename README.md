@@ -7,39 +7,32 @@ TXTpresso is an unconventional and experimental project aimed at exploring the p
 
 # Example
 
-This is a quick implementation of a DNS based "API" that returns the current time.
-
-### Usage
-
-`dig @127.0.0.1 time.txtpresso TXT +short`
-
-or
-
-`dig @txtpresso.myserver.com time.txtpresso TXT +short`
-
-`"2024-02-01 13:44:35"`
-
-### Code
-
-[![](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/TXTpresso/)
+```
+pip install txtpresso
+txtpresso-hello
+```
 
 ```
-from txtpresso.server import TXTpressoServer, BaseHandler
-from datetime import datetime
+dig @localhost +short txt hello.txtpresso
+"Hello, world!"
+```
 
-class TimeHandler(BaseHandler):
-    def handle(self):
-        return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+```
+dig @82.182.17.65 +short txt hello.txtpresso
+"Hello, world!"
+```
 
-if __name__ == '__main__':
-    server = TXTpressoServer()
-    server.register_handler('time', TimeHandler)
-    server.start()
+```
+nslookup -type=TXT hello.txtpresso localhost
+Server:         localhost
+Address:        127.0.0.1#53
+
+hello.txtpresso text = "Hello, world!"
 ```
 
 ## Goal
 
-The goal of TXTpresso is to use the DNS protocol's unique features to create a lightweight, fast, and potentially harder-to-detect communication system compared to traditional HTTP APIs.
+The goal of TXTpresso is to use the DNS protocol's unique features to create a lightweight, fast, and potentially harder-to-detect communication system compared to traditional HTTP APIs. The widespread compatibility of DNS across all internet clients is a key advantage, facilitating a nimble and efficient method of data communication.
 
 ## Concept
 
