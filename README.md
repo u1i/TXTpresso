@@ -5,7 +5,7 @@
 TXTpresso is an unconventional and experimental project aimed at exploring the possibilities of using the DNS protocol and TXT records with zero-second TTL for lightweight API-like data communication. Welcome to the geeky side of internet protocols!
 
 
-# Example
+# Usage
 
 ```
 pip install txtpresso
@@ -44,6 +44,10 @@ Using DNS TXT records and UDP, TXTpresso offers simple and swift communication m
 2. Lightweight communication: If the emphasis is on simplicity and speed rather than robustness, using DNS lookups and UDP might keep things fast and lightweight compared to a full-blown HTTP API.
 3. Novel applications or hacks: As a fun, experimental project, you could come up with neat applications that take advantage of the DNS protocol's unique characteristics.
 
+## Example Script
+
+You can look at [this example](./examples/README.md) that implements a time function using TXTpresso.
+
 ## Methods
 
 ### GET
@@ -56,7 +60,7 @@ Example: To query the current time, use the `dig` command to search for a TXT re
 dig @txtpresso.server.com +short txt time.txtpresso
 ```
 
-### POST
+### POST - to be implemented
 
 TXTpresso's POST method relies on BASE64-encoding the data you want to send and embedding it as part of a subdomain in a DNS query. This approach essentially transforms the subdomain into a carrier of your data payload. Upon receiving the query, the server decodes the information from the subdomain and processes it accordingly.
 

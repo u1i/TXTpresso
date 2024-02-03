@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='TXTpresso',
-    version='0.1.7',
+    version='0.1.8',
     author='Uli Hitzel',
     author_email='uli.hitzel@gmail.com',
     description='A lightweight DNS-based message broker',
