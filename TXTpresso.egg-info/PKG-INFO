@@ -1,3 +1,16 @@
+Metadata-Version: 2.1
+Name: TXTpresso
+Version: 0.1.4
+Summary: A lightweight DNS-based message broker
+Home-page: https://github.com/u1i/TXTpresso
+Author: Uli Hitzel
+Author-email: uli.hitzel@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
 # TXTpresso
 
 TXTpresso is an unconventional and experimental project aimed at exploring the possibilities of using DNS protocol and TXT records with zero-second TTL for lightweight API-like data communication. Welcome to the geeky side of internet protocols!

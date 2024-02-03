@@ -1,0 +1,6 @@
+.pypirc
+pyvenv.cfg
+bin/
+build/
+lib/
+dist/

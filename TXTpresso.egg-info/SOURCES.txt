@@ -1,0 +1,11 @@
+README.md
+setup.py
+TXTpresso.egg-info/PKG-INFO
+TXTpresso.egg-info/SOURCES.txt
+TXTpresso.egg-info/dependency_links.txt
+TXTpresso.egg-info/requires.txt
+TXTpresso.egg-info/top_level.txt
+txtpresso/__init__.py
+txtpresso/handlers.py
+txtpresso/server.py
+txtpresso/utils.py
