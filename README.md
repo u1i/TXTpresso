@@ -7,9 +7,15 @@ TXTpresso is an unconventional and experimental project aimed at exploring the p
 
 # Example
 
+This is a quick implementation of a DNS based "API" that returns the current time.
+
 ### Usage
 
 `dig @127.0.0.1 time.txtpresso TXT +short`
+
+or
+
+`dig @txtpresso.myserver.com time.txtpresso TXT +short`
 
 `"2024-02-01 13:44:35"`
 
